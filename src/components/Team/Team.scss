@@ -1,0 +1,21 @@
+.team{
+    height: 100%;
+
+    .block{
+        height: 100%;
+    }
+
+    &-item{
+        margin: 5px 0;
+    }
+
+    &-title{
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    &-value{
+        font-size: 22px;
+        text-align: right;
+    }
+}

@@ -1,0 +1,17 @@
+.start-audio{
+    position: fixed;
+    bottom: 2vh;
+    left: 1vw;
+    z-index: 999;
+    height: 50px;
+    width: 50px;
+
+    &:hover{
+        cursor: pointer;
+
+        img{
+            -webkit-filter: drop-shadow(2px 3px 6px #edf12c);
+            filter: drop-shadow(2px 3px 6px #edf12c);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.player-total{
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 4px 18px;
+    
+    .nft-cart-value{
+        font-size: 30px;
+    }
+}
+
+/* Mobile Only */
+@media (max-width: 739px) {
+
+
+}

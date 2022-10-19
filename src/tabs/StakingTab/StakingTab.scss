@@ -1,0 +1,18 @@
+/* Mobile Only */
+@media (max-width: 739px) {
+    .staking-tab{
+        .primary-table th, .primary-table td {
+            font-size: 12px;
+        }
+    }
+}
+
+/* Tablet Only */
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .staking-tab{
+        .primary-table th, .primary-table td {
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+.football-player-cart{
+    background-size: 100% 100% !important;
+
+    &--Common{
+        background: url(../../../public/images/Common.png) no-repeat center center;
+    }
+
+    &--Rare{
+        background: url(../../../public/images/Rare.png) no-repeat center center;
+    }
+
+    &--Legend{
+        background: url(../../../public/images/Legend.png) no-repeat center center;
+    }
+
+    border-radius: 23px;
+    padding: 20px;
+    position: relative;
+
+    margin-bottom: 30px;
+    transition: all 0.2s ease-in-out;
+
+    &-infor{
+        display: flex;
+        justify-content: space-between;
+
+        .green{
+
+            i{
+                color: rgba(255, 0, 0, 0.76);
+            }
+        }
+    }
+
+    &-energy{
+        color: #fff;
+        font-size: 20px;
+
+        i{
+            margin-right: 4px;
+            color: #F6FB16;
+            font-size: 20px;
+        }
+    }
+
+    &-img{
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img{
+            width: 90%;
+        }
+    }
+
+    &-name{
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 10px;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    &-rarity{
+        font-weight: 900;
+    }
+
+    &:hover,
+    &.active{
+        &::after{
+            content: "";
+            border-radius: 20px;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            border: 10px solid rgba(255, 255, 255, 0.78);
+            transition: all 0.2s ease-in-out;
+        }
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(0.98)
+    }
+}

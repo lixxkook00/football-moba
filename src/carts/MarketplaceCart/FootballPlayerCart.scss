@@ -1,0 +1,79 @@
+.marketplace-cart{
+    // background: linear-gradient(to right, #1b1fffaa 0%, #c404ff9b 100%) !important;
+
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 20px;
+
+    &-price{
+        background: linear-gradient(to right, #1b1fffaa 0%, #c404ff9b 100%) !important;
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin-top: 2px;
+        font-size: 14px;
+        position: relative;
+        transition: all 0.2s ease-in-out;
+        color: #fff;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(0.96);
+        }
+    }
+
+    &-date{
+        font-size: 11px;
+        color: #ddd;
+        font-style: italic;
+        margin: 4px 0;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    &-energy{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: #fff;
+        font-size: 20px;
+
+        i{
+            margin-right: 4px;
+            color: #F6FB16;
+            font-size: 20px;
+        }
+    }
+
+    &-img{
+        padding: 0 30px;
+    }
+
+    &-name{
+        font-weight: 700;
+        font-size: 18px;
+        margin: 10px 0; 
+        color: #fff;
+    }
+
+    // &:hover,
+    // &.active{
+    //     &::after{
+    //         content: "";
+    //         border-radius: 20px;
+    //         position: absolute;
+    //         height: 100%;
+    //         width: 100%;
+    //         top: 0;
+    //         left: 0;
+    //         border: 10px solid rgba(255, 255, 255, 0.78);
+    //         transition: all 0.2s ease-in-out;
+    //     }
+    // }
+
+    // &:hover{
+    //     cursor: pointer;
+    //     transform: scale(0.98)
+    // }
+}

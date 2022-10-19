@@ -1,0 +1,119 @@
+.sign-up{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: #151515 url(../../../public/images/bg-news.png) center center/cover no-repeat;
+}
+
+.sign-up-title{
+    font-size: 28px;
+    text-align: center;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.form .form-control{
+    font-size: 16px;
+    color: #fff;
+    background-color: #191e2e;
+    border-width: 2px;
+    border-color: #A01B45;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    height: 56px;
+    padding: 6px 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #A01B45;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #A01B45;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+
+    &::placeholder {
+        color: #5B8394;
+        font-weight: 500;
+    }
+}
+
+.form .form-label {
+    margin-bottom: 0;
+    padding: 0 5px;
+    height: auto;
+    min-height: 20px;
+    color: #1fd2f1;
+    font-size: 13px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1;
+}
+
+#signUpForm .form-group .placeholderState {
+    color: #becad0;
+}
+
+.form .form-group.form-group-nested .form-control-nested-container>div {
+    -webkit-flex: 1 1;
+    flex: 1 1;
+    margin-right: 15px;
+}
+
+.form .form-group.form-group-nested .form-control-nested-container>div:last-child {
+    margin-right: 0;
+}
+
+.form .form-group.form-group-nested .form-control-nested-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.link, .link:hover {
+    color: #A01B45;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+
+.btn-primary:hover, .tournament-filter-container .filter-pills-group .filter-pill:hover {
+    color: #fff;
+    background-color: #0ebedc;
+    border-color: #A01B45;
+}
+
+.password-block{
+    display: flex;
+    position: relative;
+
+    &-icon{
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+
+        i{
+            font-size: 16px;
+            color: #fff;
+        }
+
+        &:hover{
+            cursor: pointer;
+
+            i{
+                color: #A01B45;
+            }
+        }
+    }
+}

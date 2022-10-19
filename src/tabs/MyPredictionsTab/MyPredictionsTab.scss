@@ -1,0 +1,22 @@
+.predictions-tab{
+    padding-top: 20px;
+
+    &-wrapper{
+        height: 700px;
+        overflow-y: auto;
+    }
+
+    .block{
+        margin-bottom: 20px;
+    }
+
+    .value-fail,
+    .value-complete{
+        font-size: 30px;
+    }
+
+    i{
+        font-size: 25px;
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,24 @@
+.football-player-cart-injured{
+    // background: linear-gradient(to right, #1b1fffaa 0%, #c404ff9b 100%) !important;
+    background-size: 100% 100%;
+
+    border-radius: 20px;
+    padding: 20px 20px 30px;
+    position: relative;
+
+    margin-bottom: 30px;
+    transition: all 0.2s ease-in-out;
+
+    
+    .primary-button{
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}
+
+.football-player-cart-rarity{
+    img{
+        width: 40%;
+        margin: 8px 0;
+    }
+}

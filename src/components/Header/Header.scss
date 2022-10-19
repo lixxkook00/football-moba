@@ -1,0 +1,51 @@
+@import '../../scss/animations';
+
+.header{
+    margin-top: 20px;
+    // padding-right: 30px;
+    // width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    animation: header 0.5s ease-in-out;
+
+    &-item{
+        height: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 4px 6px;
+        margin-top: 10px;
+
+        &:not(:last-child){
+            margin-right: 10px;
+        }
+
+        &-icon{
+            margin: 0 10px 0 4px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &-value{
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+/* Mobile Only */
+@media (max-width: 739px) {
+    .header-item-value{
+        max-width: 280px;
+    }
+    
+}

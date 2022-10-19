@@ -1,0 +1,25 @@
+.prediction-cart{
+    margin-bottom: 20px;
+
+    &-time{
+        color: rgb(88, 88, 88);
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    &-flag{
+        border: 2px solid #827373c0;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    &-wrapper{
+        display: flex;
+        padding: 0 30px;
+        justify-content: space-between;
+    }
+
+    &-vs{
+        width: 50px;
+    }
+}

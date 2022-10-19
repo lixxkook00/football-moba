@@ -1,0 +1,21 @@
+.penalty-btn{
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+
+    border-radius: 14px;
+    border: 1px solid #ff066a;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.822);
+
+    padding: 4px 0;
+    margin-top: 10px;
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(0.96);
+        color: green;
+        border-color: green;
+    }
+}

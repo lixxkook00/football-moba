@@ -1,0 +1,19 @@
+.award-result{
+    &-item{
+        width: 200px;
+    }
+
+    .token{
+        background: url(../../../public/images/token-frame.png) center center no-repeat;
+        background-size: 100% 100%;
+        padding: 40px 20px;
+        font-size: 22px !important;
+
+        &-img{
+            img{
+                width: 80%;
+                height: auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.start{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    width: 100vw;
+    background-color: #000000ea;
+    transition: all 2s ease-in-out;
+    z-index: 100000;
+
+    &.close{
+        background-color: rgba(0, 0, 0, 0.173);
+
+        .start-wrapper{
+            transition: all 2s ease-in-out;
+            animation: start-close 2s ease-in-out;
+        }
+    }
+
+    &-logo{
+        
+        img{
+            width: 45vw;
+            min-width: 300px;
+        }
+    }
+
+    &-button{
+        transition: all 0.4s ease-in-out;
+
+        &:hover{
+            transform: scale(0.9);
+            cursor: pointer;
+
+            img{
+                -webkit-filter: drop-shadow(2px 3px 6px #edf12c);
+                filter: drop-shadow(2px 3px 6px #edf12c);
+            }
+        }
+        
+        img{
+            width: 20vw;
+        }
+    }
+}

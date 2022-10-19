@@ -1,0 +1,23 @@
+@import './scss/bootstrap.min.css';
+@import './scss/utils';
+@import './scss/responsive';
+
+.App{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../public/images/background.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    display: flex;
+
+    font-family: Roboto-Condensed,sans-serif;
+}
+
+/* Mobile Only */
+@media (max-width: 739px) {
+
+    .App{
+        background-size: auto 100%;
+    }
+}

@@ -1,0 +1,16 @@
+.penalty{
+
+    &-button{
+        margin-top: 20px;
+        max-width: 300px;
+        opacity: 0.5;
+
+        &.active{
+            opacity: 1;
+        }
+    }
+
+    .player-total .nft-cart-value{
+        font-size: 22px;
+    }
+}
