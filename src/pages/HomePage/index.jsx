@@ -10,9 +10,9 @@ import DepositModal from '../../Modals/DepositModal'
 
 import LoadingScreen from '../LoadingScreen'
 
-import { useNavigate } from 'react-router-dom'
-import { handleGetPlayers } from '../../utils/handlePlayers'
-import { handleGetInforUser } from '../../utils/handleUsers'
+// import { useNavigate } from 'react-router-dom'
+// import { handleGetPlayers } from '../../utils/handlePlayers'
+// import { handleGetInforUser } from '../../utils/handleUsers'
 
 export default function Home() {
     const [showModalClaim, setShowModalClaim] = useState(false);
