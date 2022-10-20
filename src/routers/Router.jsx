@@ -26,26 +26,26 @@ export default function Router({audio}) {
 
   let navigate = useNavigate();
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const url = window.location.pathname.split('/')[1]
+  //   const url = window.location.pathname.split('/')[1]
 
-    if(
-      sessionStorage.getItem('token') === null
-      &&
-      url !== ""  
-      &&
-      url !== "login" 
-      && 
-      url !== "signup" 
-      && 
-      url !== "loginwallet"
-      && 
-      url !== "forgot-password"
-    ){
-      navigate("/login") 
-    }
-  })
+  //   if(
+  //     sessionStorage.getItem('token') === null
+  //     &&
+  //     url !== ""  
+  //     &&
+  //     url !== "login" 
+  //     && 
+  //     url !== "signup" 
+  //     && 
+  //     url !== "loginwallet"
+  //     && 
+  //     url !== "forgot-password"
+  //   ){
+  //     navigate("/login") 
+  //   }
+  // })
 
   // handle audio
   const [audioState,setAudioState] = useState(false)

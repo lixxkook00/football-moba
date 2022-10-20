@@ -25,21 +25,21 @@ export default function Home() {
 
     const [loading,setLoading] = useState(false)
 
-    let navigate = useNavigate()
+    // let navigate = useNavigate()
 
-    const getUser = async () => {
-        setLoading(true)
-        const result = await handleGetInforUser(navigate)
+    // const getUser = async () => {
+    //     setLoading(true)
+    //     const result = await handleGetInforUser(navigate)
 
-        if(result !== ""){
-            setLoading(false)
-            setTotalToken(result.data.token)
-        }
-    }
+    //     if(result !== ""){
+    //         setLoading(false)
+    //         setTotalToken(result.data.token)
+    //     }
+    // }
 
-    useEffect(() => {
-        getUser()
-    },[])
+    // useEffect(() => {
+    //     getUser()
+    // },[])
 
   return (
     <div className="home">
