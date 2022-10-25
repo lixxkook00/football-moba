@@ -166,6 +166,11 @@
         z-index: 3;
         background: #000;
 
+        video{
+            width: 100%;
+            height: auto;
+        }
+
         &-close{
             position: absolute;
             bottom: 2%;
@@ -294,6 +299,12 @@
         left: 0;
         top: 12%;
     }
+    .kick-result{
+        video{
+            height: 100%;
+            width: auto;
+        }
+    }
 
     .kick-wrapper{
         padding: 4px;
@@ -302,7 +313,7 @@
 
     .kick-goal{
         bottom: 31vh;
-        width: 65vw;
+        width: 85vw;
     }
 
 }

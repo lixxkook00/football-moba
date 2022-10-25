@@ -52,9 +52,8 @@ export default function KickPages() {
 
     const handleVideoReady = async (ref) => {
         // alert("video loaded")
-        console.log(ref?.current);
+        // console.log(ref?.current);
         ref?.current?.click()
-        ref?.current?.play()
 
          /* fix ios autoplay mp4 video */
         Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
@@ -88,6 +87,41 @@ export default function KickPages() {
 
     const [mutedState,setMutedState] = useState(false)
 
+    const fakeKick = () => {
+        if(currentSide !== ""){
+            setIsRunning(false)
+            setLoading(true)
+
+            setStateVideo(true)
+
+            console.log("power",powerPercent)
+
+            if(window.innerWidth < 740){
+                if(powerPercent > 80){
+                    setUrlVideo(`miss-${currentSide}-over-mobile.mp4`)
+                    console.log(`miss-${currentSide}-over-mobile.mp4`)
+                }
+                else if(powerPercent < 30){
+                    setUrlVideo(`miss-${currentSide}-mobile.mp4`)
+                }
+                else{
+                    setUrlVideo(`goal-${currentSide}-mobile.mp4`)
+                }
+            }else{
+                if(powerPercent > 80){
+                    setUrlVideo(`miss-${currentSide}-over.mp4`)
+                    console.log(`miss-${currentSide}-over.mp4`)
+                }
+                else if(powerPercent < 30){
+                    setUrlVideo(`miss-${currentSide}.mp4`)
+                }
+                else{
+                    setUrlVideo(`goal-${currentSide}.mp4`)
+                }
+            } 
+        }
+    }
+
     const kick = async () => {
         if(currentSide !== ""){
             setLoading(true)
@@ -114,47 +148,6 @@ export default function KickPages() {
     
                 // play this video
                 setResultAward(result)
-                // hanlde this shit bug ios
-                var userAgent = window.navigator.userAgent;
-                let browserName = "";
-
-                if(userAgent.match(/chrome|chromium|crios/i)){
-                    browserName = "chrome";
-                }else if(userAgent.match(/firefox|fxios/i)){
-                    browserName = "firefox";
-                }  else if(userAgent.match(/safari/i)){
-                    browserName = "safari";
-                }else if(userAgent.match(/opr\//i)){
-                    browserName = "opera";
-                } else if(userAgent.match(/edg/i)){
-                    browserName = "edge";
-                }else{
-                    browserName="No browser detection";
-                }
-                
-                if (
-                    userAgent.match(/iPad/i)   || 
-                    userAgent.match(/iPhone/i) || 
-                    ( 
-                        userAgent.match(/Mac OS/i) 
-                        && 
-                        browserName==="safari" 
-                    )
-                ) {
-                    if(window.innerWidth < 740){
-                        if(result.result){
-                            url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}-mobile-muted.mp4`
-                        }else{
-                            url = `miss-${currentSide}-mobile-muted.mp4`
-                        }
-                    }
-
-                    setMutedState(true)
-                }   
-
-                setUrlVideo(url)
-
-                setStateVideo(true)
 
             }
         }
@@ -163,9 +156,7 @@ export default function KickPages() {
     // handle show award
     const [award,setAward] = useState("")
 
-
     // Hole to kick event
-
     const [powerPercent,serPowerPercent] = useState(0)
     const [isRunning, setIsRunning] = useState(false);
 
@@ -173,7 +164,7 @@ export default function KickPages() {
 
     useEffect(() => {
         if(powerPercent > 100){
-            console.log("kick in limit");
+            fakeKick()
             clearInterval(myInterval.current );
             myInterval.current  = null;
         }
@@ -197,11 +188,7 @@ export default function KickPages() {
 
     const handeFinish = () => {
         // console.log("kick now in", powerPercent);
-        setIsRunning(false)
-        setLoading(true)
-        setStateVideo(true)
-        setMutedState(true)
-        setUrlVideo(`TH6-RIGHT-NO GOAL.mp4`)
+        fakeKick()
     }
 
     return (
