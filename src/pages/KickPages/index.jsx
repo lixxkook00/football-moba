@@ -98,8 +98,13 @@ export default function KickPages() {
 
             if(window.innerWidth < 740){
                 if(powerPercent > 80){
-                    setUrlVideo(`miss-${currentSide}-over-mobile.mp4`)
-                    console.log(`miss-${currentSide}-over-mobile.mp4`)
+                    if(currentSide === "right-down" || currentSide === "right-up"){
+                        setUrlVideo(`miss-right-over-mobile.mp4`)
+                    }else if(currentSide === "left-down" || currentSide === "left-up"){
+                        setUrlVideo(`miss-left-over-mobile.mp4`)
+                    }else{
+                        setUrlVideo(`miss-${currentSide}-over-mobile.mp4`)
+                    }
                 }
                 else if(powerPercent < 30){
                     setUrlVideo(`miss-${currentSide}-mobile.mp4`)
@@ -109,8 +114,13 @@ export default function KickPages() {
                 }
             }else{
                 if(powerPercent > 80){
-                    setUrlVideo(`miss-${currentSide}-over.mp4`)
-                    console.log(`miss-${currentSide}-over.mp4`)
+                    if(currentSide === "right-down" || currentSide === "right-up"){
+                        setUrlVideo(`miss-right-over.mp4`)
+                    }else if(currentSide === "left-down" || currentSide === "left-up"){
+                        setUrlVideo(`miss-left-over.mp4`)
+                    }else{
+                        setUrlVideo(`miss-${currentSide}-over.mp4`)
+                    }
                 }
                 else if(powerPercent < 30){
                     setUrlVideo(`miss-${currentSide}.mp4`)
