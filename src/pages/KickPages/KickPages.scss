@@ -13,8 +13,12 @@
 
     &-button{
         position: absolute;
-        bottom: 4%;
+        bottom: 3.5%;
         width: 100%;
+
+        .menu-item-name{
+            padding: 30px;
+        }
     }
 
     &-wrapper{
@@ -255,7 +259,7 @@
         height: 10px;
         margin: 10px 0px;
         position: absolute;
-        bottom: 10%;
+        bottom: 12%;
         width: 100%;
     }
 

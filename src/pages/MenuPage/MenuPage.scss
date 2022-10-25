@@ -1,0 +1,50 @@
+.menu{
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-item:hover{
+        cursor: pointer;
+
+        .menu-item-name{
+            color: #F1C40F;
+        }
+    }
+
+    &-item-l{
+        transform: scale(1.4)
+    }
+
+    &-item{
+        margin-bottom: 20px;
+
+        img{
+            width: 60%;
+        }
+    }
+
+    &-item-name{
+        background: url(../../../public/images/menu-button.png) no-repeat center center;
+        background-size: contain;
+        padding: 20px;
+        color: #fff;
+        font-weight: 600;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(0.95)
+        }
+    }
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1023px) {
+    .menu{
+        &-item-l{
+            transform: scale(1)
+        }
+    }
+}

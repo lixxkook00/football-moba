@@ -19,6 +19,7 @@ import MysteryBoxOpeing from '../pages/MysteryBoxOpeing';
 import ForgotPassword from '../pages/ForgotPassword';
 import StakingPage from '../pages/StakingPage';
 import NotFound404 from '../pages/NotFound404';
+import MenuPage from '../pages/MenuPage';
 
 export default function Router({audio}) {
 
@@ -50,7 +51,7 @@ export default function Router({audio}) {
 
         <Routes>
 
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<MenuPage />} />
 
           <Route path="/home" element={<HomePage/>} />
           

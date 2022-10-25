@@ -286,7 +286,7 @@ export default function KickPages() {
 
                 <div className="kick-button centering">
                     <div 
-                        className="primary-button" 
+                        className="menu-item-name" 
                         onMouseDown={handeHold}
                         onTouchStart={(e) => handeHold(e)}
 

@@ -47,7 +47,7 @@ export default function AvailableAttackers() {
       <LoadingScreen state={loading} />
 
       <div className="centering">
-          <div className="primary-button hire-player" onClick={ () => hirePlayer()}>
+          <div className="menu-item-name hire-player" onClick={ () => hirePlayer()}>
             HIRE PLAYER
           </div>
           
