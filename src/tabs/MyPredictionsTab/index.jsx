@@ -38,7 +38,7 @@ export default function MyPredictionsTab() {
                     </div>
                     <div className="centering">
                         <span className="value-complete">
-                            + <FormatAmount amount={1000}/> KICKS
+                            + <FormatAmount amount={1000}/> OBA
                         </span>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ export default function MyPredictionsTab() {
                     </div>
                     <div className="centering">
                         <span className="value-fail">
-                            - <FormatAmount amount={1000}/> KICKS
+                            - <FormatAmount amount={1000}/> OBA
                         </span>
                     </div>
                 </div>

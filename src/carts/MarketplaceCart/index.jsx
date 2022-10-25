@@ -59,7 +59,7 @@ export default function MarketplaceCart({data}) {
 
         <div className="marketplace-cart-price centering" onClick={() => buy(data?.id)}>
           <span className="value-price">
-            <FormatAmount amount={data?.price} />KICKS
+            <FormatAmount amount={data?.price} />OBA
           </span>
         </div>
       </div>

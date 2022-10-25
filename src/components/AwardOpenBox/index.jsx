@@ -23,7 +23,7 @@ export default function AwardOpenBox({reward}) {
                         </div>
                         <div className="token-value centering mt-2">
                             <span className="value-price">
-                                + 200 KICKS
+                                + 200 OBA
                             </span>
                         </div>
                     </div>

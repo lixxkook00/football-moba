@@ -33,40 +33,6 @@ export default function Header() {
     return (
         <div className="container">
             <header className="header row">
-                <div className="col-lg-3 col-md-12  hidden-m-t">    
-                    <div className="header-item">
-                        <div className="header-item-icon">
-                            <img src="./images/wallet.png" alt="" />
-                        </div>
-                        <div className="header-item-value wallet-address">
-                            {walletAddress}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-lg-3 col-md-12">
-                    <div className="header-item">
-                        <div className="header-item-icon">
-                            <img src="./images/sticket.png" alt="" />
-                        </div>
-                        <div className="header-item-value text-overflow value">
-                            {ticket}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-lg-3 col-md-12">
-                    <div className="header-item">
-                        <div className="header-item-icon">
-                            <img src="./images/token-kicks-red.png" alt="" />
-                        </div>
-                        <div className="header-item-value text-overflow value">
-                            <FormatAmount amount={balance}/>
-                        </div>
-                    </div>
-                </div>
-
-    
                 <div className="col-lg-3 col-md-12">
                     <div className="header-item">
                         <div className="header-item-icon">

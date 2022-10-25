@@ -25,7 +25,7 @@ export default function Team({quantity}) {
                         EveryDay Rewards
                     </div>
                     <div className="team-value value">
-                        <FormatAmount amount={300}/> KICKS
+                        <FormatAmount amount={300}/> OBA
                     </div>
                 </div>
 
@@ -34,7 +34,7 @@ export default function Team({quantity}) {
                         Your Rewards
                     </div>
                     <div className="team-value value">
-                        <FormatAmount amount={300}/> KICKS
+                        <FormatAmount amount={300}/> OBA
                     </div>
                 </div>
             </div>

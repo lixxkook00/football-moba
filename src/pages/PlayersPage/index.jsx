@@ -18,14 +18,14 @@ export default function PlayersPage() {
 
     let navigate = useNavigate()
 
-    const getUser = async () => {
-        setLoading(true)
-        const result = await handleGetPlayers(setLoading,navigate,setData)
-    }
+    // const getUser = async () => {
+    //     setLoading(true)
+    //     const result = await handleGetPlayers(setLoading,navigate,setData)
+    // }
 
-    useEffect(() => {
-        getUser()
-    },[])
+    // useEffect(() => {
+    //     getUser()
+    // },[])
 
     const [activeTab,setActiveTab] = useState("available")
 

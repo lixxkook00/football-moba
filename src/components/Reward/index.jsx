@@ -37,7 +37,7 @@ export default function Reward({setShowModalClaim,setShowModalDeposit}) {
                         Total Balance
                     </div>
                     <div className="reward-value value">
-                        <FormatAmount amount={balance}/> KICKS
+                        <FormatAmount amount={balance}/> OBA
                     </div>
                 </div>
 

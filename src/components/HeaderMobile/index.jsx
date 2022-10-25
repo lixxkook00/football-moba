@@ -125,7 +125,7 @@ export default function HeaderMobile() {
                             <div className="sidebar-item-icon">
                                 <i className="fa-solid fa-book"></i>
                             </div>
-                            <a href={"https://whitepaper.mightykicks.club"} className="sidebar-item-name">
+                            <a href={"https://whitepaper.mightyOBA.club"} className="sidebar-item-name">
                                 Whitepaper
                             </a>
                         </a>

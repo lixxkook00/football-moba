@@ -25,15 +25,15 @@ export default function KickPages() {
         const result = await handleGetPlayerbyID(setLoading,navigate,id,setCurrentCartMain)
     }
 
-    useEffect(() => {
-        if(id===""){
-            window.location.href='/penalty'
-        }
-        else{
-            getInforPlayer(id)
-        }
+    // useEffect(() => {
+    //     if(id===""){
+    //         window.location.href='/penalty'
+    //     }
+    //     else{
+    //         getInforPlayer(id)
+    //     }
 
-    },[])
+    // },[])
 
     // handle back
     const back = () => {
@@ -51,8 +51,31 @@ export default function KickPages() {
     const [urlVideo,setUrlVideo] = useState("")
 
     const handleVideoReady = async (ref) => {
-        alert("oke ne")
+        // alert("video loaded")
+        console.log(ref?.current);
+        ref?.current?.click()
         ref?.current?.play()
+
+         /* fix ios autoplay mp4 video */
+        Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+            get: function () {
+                return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+            }
+        });
+
+        document.querySelector('.App').addEventListener('click touchstart', function () {
+            const videoElement = ref?.current;
+            alert('run')
+            if (videoElement.playing) {
+                // video is already playing so do nothing
+            }
+            else {
+                // video is not playing
+                // so play video now
+                videoElement.play();
+            }
+        });
+
         setLoading(false)
         setTimeout(() => {
             setAward({
@@ -61,7 +84,6 @@ export default function KickPages() {
                 "amount":resultAward?.reward
             })
         },1500)
-    
     }
 
     const [mutedState,setMutedState] = useState(false)
@@ -132,127 +154,210 @@ export default function KickPages() {
 
                 setUrlVideo(url)
 
-                // alert(`./videos/${url}`)
-
                 setStateVideo(true)
 
             }
         }
     }
 
-    // fix this shit bux ios mobile trash
-    // useEffect(() => {
-    //     console.log("stateVideo",readyVideo.current)
-    // },[stateVideo])
-
     // handle show award
     const [award,setAward] = useState("")
 
-  return (
-    <div className="home kick centering">
-        <div className="kick-wrapper">
 
-            <LoadingScreen state={loading} />
+    // Hole to kick event
 
-            <Link to="/penalty" className="kick-back">
-                <i className="fa-solid fa-angle-left"></i>
-                <span className="value">
-                    BACK
-                </span>
-            </Link>
+    const [powerPercent,serPowerPercent] = useState(0)
+    const [isRunning, setIsRunning] = useState(false);
 
-            <div className="demo centering">
-                <div className={`football-player-cart football-player-cart--${currentCartMain?.rarity} active`} >
+    const myInterval = useRef();
 
-                    <div className="football-player-cart-infor">
-                        <div className="football-player-cart-energy green">
-                            <i className="fa-solid fa-droplet"></i>
-                            {currentCartMain?.durability}
-                        </div>
+    useEffect(() => {
+        if(powerPercent > 100){
+            console.log("kick in limit");
+            clearInterval(myInterval.current );
+            myInterval.current  = null;
+        }
+    },[powerPercent])
 
-                        <div className="football-player-cart-energy">
-                        <i className="fa-solid fa-bolt"></i>
-                        {currentCartMain?.energy}
-                        </div>
-                    </div>
+    useEffect(() => {
+        if (isRunning) {
+            myInterval.current  = setInterval(() => {
+                serPowerPercent(powerPercent => powerPercent + 1)
+            }, 10);
+        } else {
+            clearInterval(myInterval.current );
+            myInterval.current  = null;
+        }
+    }, [isRunning]);
 
-                    <div className="football-player-cart-img">
-                    <img src={`./images/${currentCartMain?.image}`} alt="" />
-                    </div>
+    const handeHold = (e) => {
+        e.preventDefault();
+        setIsRunning(true)
+    }
 
-                    <div className={`football-player-cart-rarity text-center rarity-${currentCartMain?.rarity}`}>
-                        <img src={`./images/${currentCartMain?.rarity}-button.png`} alt="" />
-                    </div>
-                </div>
-            </div>
+    const handeFinish = () => {
+        // console.log("kick now in", powerPercent);
+        setIsRunning(false)
+        setLoading(true)
+        setStateVideo(true)
+        setMutedState(true)
+        setUrlVideo(`TH6-RIGHT-NO GOAL.mp4`)
+    }
 
-            <div className="kick-goal">
-                <img src="./images/khungthanh02.png" alt="" />
+    return (
+        <div className="home kick centering">
+            <div className="kick-wrapper">
 
-                <div className="kick-goal-side">
-                    <div className={`kick-goal-side-item centering ${currentSide === "left" ? "active" : ""}`} onClick={() => setCurrentSide("left")}>
-                        <i className="fa-solid fa-circle-arrow-left"></i>
-                    </div>
-                    <div className={`kick-goal-side-item centering ${currentSide === "center" ? "active" : ""}`} onClick={() => setCurrentSide("center")}>
-                        <i className="fa-solid fa-arrows-to-dot"></i>
-                    </div>
-                    <div className={`kick-goal-side-item centering ${currentSide === "right" ? "active" : ""}`} onClick={() => setCurrentSide("right")}>
-                        <i className="fa-solid fa-circle-arrow-right"></i>
-                    </div>
-                </div>
+                <LoadingScreen state={loading} />
 
-            </div>
-
-            <div className="kick-button centering">
-                <div className="primary-button" onClick={() => kick()}>
-                    Choose side to kick - 1 <i className="fa-solid fa-bolt"></i>
-                </div>
-            </div>
-
-            {/* result video*/}
-            {
-                stateVideo === true
-                &&
-                <div className="kick-result centering">
-                    <video
-                        controls={false} 
-                        width="100%" 
-                        height="100%" 
-                        onLoadedData={() => handleVideoReady(readyVideo)}
-                        ref={readyVideo} 
-                        playsInline={true}
-                        muted={mutedState}
-                        // onloadeddata={() => alert("Loaded video by loadedData...")}
-                        // preload="metadata"
-                        // webkit-playsinline="true"
-                    >
-                        <source src={`./videos/${urlVideo}`} type="video/mp4"/>
-                    </video>
-                    <div className="kick-result-close primary-button" onClick={() => back()}>
+                <Link to="/penalty" className="kick-back">
+                    <i className="fa-solid fa-angle-left"></i>
+                    <span className="value">
                         BACK
+                    </span>
+                </Link>
+
+                <div className="demo centering">
+                    <div className={`football-player-cart football-player-cart--${currentCartMain?.rarity} active`} >
+
+                        <div className="football-player-cart-infor">
+                            <div className="football-player-cart-energy green">
+                                <i className="fa-solid fa-droplet"></i>
+                                {currentCartMain?.durability}
+                            </div>
+
+                            <div className="football-player-cart-energy">
+                            <i className="fa-solid fa-bolt"></i>
+                            {currentCartMain?.energy}
+                            </div>
+                        </div>
+
+                        <div className="football-player-cart-img">
+                        <img src={`./images/${currentCartMain?.image}`} alt="" />
+                        </div>
+
+                        <div className={`football-player-cart-rarity text-center rarity-${currentCartMain?.rarity}`}>
+                            <img src={`./images/${currentCartMain?.rarity}-button.png`} alt="" />
+                        </div>
                     </div>
                 </div>
-            }
-            
-            {/* pop up reward */}
-            <div className={`kick-award ${award !=="" ? "active" : ""}`}>
-                <div className={`kick-award-title ${award?.result}`}>
-                    {
-                        award?.result
-                        ?
-                        "GOAL"
-                        :
-                        "NO GOAL"
-                    }
+
+                <div className="kick-goal">
+                    <img src="./images/khungthanh02.png" alt="" />
+
+                    <div className="kick-goal-side">
+
+                        <div className={`kick-goal-side-block`} >
+                            <div 
+                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-left-up kick-goal-side-in centering ${currentSide === "left-up" ? "active" : ""}`} 
+                                onClick={() => setCurrentSide("left-up")}
+                            >
+                                <img src="./images/arrow-kick.png" alt="" />
+                            </div>
+
+                            <div 
+                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-left-down kick-goal-side-in kick-goal-side-block centering ${currentSide === "left-down" ? "active" : ""}`} 
+                                onClick={() => setCurrentSide("left-down")}
+                            >
+                                <img src="./images/arrow-kick.png" alt="" />
+                            </div>
+                        </div>
+
+                        <div 
+                            className={`kick-goal-side-item kick-goal-side-block centering ${currentSide === "center" ? "active" : ""}`} 
+                            onClick={() => setCurrentSide("center")}
+                        >
+                            <i className="fa-solid fa-arrows-to-dot"></i>
+                        </div>
+
+                        <div className={`kick-goal-side-block`} >
+                            <div 
+                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-right-up kick-goal-side-in centering ${currentSide === "right-up" ? "active" : ""}`} 
+                                onClick={() => setCurrentSide("right-up")}
+                            >
+                                <img src="./images/arrow-kick.png" alt="" />
+                            </div>
+
+                            <div 
+                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-right-down kick-goal-side-in kick-goal-side-block centering ${currentSide === "right-down" ? "active" : ""}`} 
+                                onClick={() => setCurrentSide("right-down")}
+                            >
+                                <img src="./images/arrow-kick.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div className={`kick-award-amount value-complete`}>
-                    + {award?.amount} KICKS
+
+                {/* STRENG PROCESS */}
+                <div className="progress-bar-container">
+                    <div className="progress-bar-wrapper">
+                        <div className="progress-bar-indicator" style={{width: `${powerPercent}%`}}></div>
+                    </div>
                 </div>
+
+
+                <div className="kick-button centering">
+                    <div 
+                        className="primary-button" 
+                        onMouseDown={handeHold}
+                        onTouchStart={(e) => handeHold(e)}
+
+                        onMouseUp={handeFinish} 
+                        onTouchEnd={handeFinish}
+                    >
+                        Hold to kick - 1 <i className="fa-solid fa-bolt"></i>
+                    </div>
+                </div>
+
+                {/* result video*/}
+                {
+                    stateVideo === true
+                    &&
+                    <div className="kick-result centering">
+                        <video
+                            controls={false} 
+
+                            width="100%" 
+                            height="100%" 
+
+                            onLoadedData={() => handleVideoReady(readyVideo)}
+                            ref={readyVideo} 
+                            playsInline={true}
+                            // muted={mutedState}
+                            muted
+                            autoPlay={true}
+                            // onloadeddata={() => alert("Loaded video by loadedData...")}
+                            // preload="metadata"
+                            webkit-playsinline="webkit-playsinline"
+                        >
+                            <source src={`./videos/${urlVideo}`} type="video/mp4"/>
+                        </video>
+                        <div className="kick-result-close primary-button" onClick={() => back()}>
+                            BACK
+                        </div>
+                    </div>
+                }
+                
+                {/* pop up reward */}
+                <div className={`kick-award ${award !=="" ? "active" : ""}`}>
+                    <div className={`kick-award-title ${award?.result}`}>
+                        {
+                            award?.result
+                            ?
+                            "GOAL"
+                            :
+                            "NO GOAL"
+                        }
+                    </div>
+                    <div className={`kick-award-amount value-complete`}>
+                        + {award?.amount} OBA
+                    </div>
+                </div>
+
             </div>
 
+            {/* <KickResultModal showModalKickResult={showModalKickResult} setShowModalKickResult={setShowModalKickResult} kickData={kickData} id={id}/> */}
         </div>
-
-        {/* <KickResultModal showModalKickResult={showModalKickResult} setShowModalKickResult={setShowModalKickResult} kickData={kickData} id={id}/> */}
-    </div>
-  )
+    )
 }

@@ -69,7 +69,7 @@ export default function ClaimableList({data}) {
                                                     <FormatAmount amount={item.debit} />
                                                 </span>
                                                 <span className="value">
-                                                Kicks
+                                                OBA
                                                 </span>
                                             </td>
 
@@ -82,7 +82,7 @@ export default function ClaimableList({data}) {
                                             <td>
                                                 <span className="value">
                                                     <FormatAmount amount={item.token_stake} />
-                                                    Kicks
+                                                    OBA
                                                 </span>
                                             </td>
 

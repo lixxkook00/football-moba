@@ -67,7 +67,7 @@ export default function History() {
 
                                                 }
 
-                                                Kicks
+                                                OBA
                                             </td>
 
                                             <td>
@@ -90,7 +90,7 @@ export default function History() {
                                             + <FormatAmount amount={50} />
                                         </span>
 
-                                        Kicks
+                                        OBA
                                     </td>
 
                                     <td>

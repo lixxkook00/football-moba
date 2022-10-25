@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 50px;
   padding: 10px 0;
 
   &-logo {
@@ -37,7 +37,7 @@
   &-icon {
     i {
       font-size: 30px;
-      color: #5e2741;
+      color: #5eb7d2b3;
     }
   }
 
@@ -48,7 +48,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  height: 70px;
+  height: 50px;
   border-bottom: 1px solid rgba(221, 221, 221, 0.353);
   background-color: transparent;
 
@@ -112,7 +112,7 @@
 
 .MuiModal-root {
   & div:nth-child(3) {
-    background-image: linear-gradient(90deg, #36202a 10%, #2e0f1e 90%) !important;
+    background-color: #173648;
 
     .sidebar-item{
       margin-bottom: 0 !important;

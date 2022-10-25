@@ -52,7 +52,7 @@ export default function StakeModal({showModalStake,setShowModalStake}) {
                     </div>
 
                     <div className="text-center mt-2">
-                        Fee {stakeHire} Kicks
+                        Fee {stakeHire} OBA
                     </div>
                     
                     <div className="d-flex mt-3">

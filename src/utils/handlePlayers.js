@@ -200,7 +200,7 @@ export async function handleHealingPlayers(id,setLoading,navigate) {
             if(res.status) { 
                 if(res.status == 201) {
                     setLoading(false)
-                    swal(res.data.msg, 'Fee 500 KICKS', 'success', 1000, false);
+                    swal(res.data.msg, 'Fee 500 OBA', 'success', 1000, false);
 
                     setTimeout(() => {
                         window.location.reload();
@@ -253,7 +253,7 @@ export async function handleReEnergyPlayers(id,setLoading,navigate) {
             if(res.status) { 
                 if(res.status == 201) {
                     setLoading(false)
-                    swal(res.data.msg, 'Fee 500 KICKS', 'success', 1000, false);
+                    swal(res.data.msg, 'Fee 500 OBA', 'success', 1000, false);
 
                     setTimeout(() => {
                         window.location.reload();

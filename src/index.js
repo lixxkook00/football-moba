@@ -12,7 +12,7 @@ const token = sessionStorage.getItem("token")
 
 
 
-axios.defaults.baseURL = 'https://api.mightykicks.club/';
+axios.defaults.baseURL = 'https://api.mightyOBA.club/';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 

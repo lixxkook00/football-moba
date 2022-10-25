@@ -4,7 +4,7 @@ import './Socials.scss'
 export default function Socials() {
   return (
     <div className="socials">
-        <a href="https://t.me/MightyKicksGlobal" className="socials-item">
+        <a href="https://t.me/MightyOBAGlobal" className="socials-item">
             <i className="fa-solid fa-paper-plane"></i>
         </a >
 
@@ -12,7 +12,7 @@ export default function Socials() {
             <i className="fa-brands fa-youtube"></i>
         </a >
 
-        <a href="https://twitter.com/MightyKicksNew" className="socials-item">
+        <a href="https://twitter.com/MightyOBANew" className="socials-item">
             <i className="fa-brands fa-twitter"></i>
         </a >
 

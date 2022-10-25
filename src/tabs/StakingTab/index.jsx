@@ -47,7 +47,7 @@ export default function   StakingTab() {
             <div className="col-md-5 col-12 mt-2">
               <div className="block">
                 <div className="title text-center mb-4">
-                  My Kicks Staking
+                  My OBA Staking
                 </div>
 
                 <div className="row mt-2 mb-2">
@@ -65,7 +65,7 @@ export default function   StakingTab() {
                       TOTAL STAKED TOKEN
                     </div>
                     <div className="reward-value value text-right">
-                      {stakedToken ? stakedToken : 0} Kicks
+                      {stakedToken ? stakedToken : 0} OBA
                     </div>
                   </div>
 
@@ -74,7 +74,7 @@ export default function   StakingTab() {
                       TOTAL CLAIMABLE
                     </div>
                     <div className="reward-value value text-right">
-                      {claimable ? claimable : 0} Kicks
+                      {claimable ? claimable : 0} OBA
                     </div>
                   </div>
 

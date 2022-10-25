@@ -160,10 +160,10 @@ a:not([href]):not([tabindex]){
 
 
 .block{
-  background: #fff url(../../public/images/bg-events.png) center center/cover no-repeat;
-  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
   padding: 15px 30px;
-  border: 3px solid #40192C;
+  border: 3px solid #5EB6D2;
 }
 
 .block-red{
@@ -186,7 +186,7 @@ a:not([href]):not([tabindex]){
 .value{
   user-select: none;
   font-weight: 700;
-  background-image: linear-gradient(180deg, #40192C 23%, #40192c89 53%, #40192C 78%);
+  background-image: linear-gradient(180deg, #001042 7%, #5ABFD4 51%, #001042 91%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
@@ -257,20 +257,20 @@ a:not([href]):not([tabindex]){
 
 .primary-button{
   width: 100%;
-  border-radius: 40px;
+  border-radius: 10px;
   padding: 6px 20px;
   background-color: #fff;
   color: #fff;
   font-weight: 600;
   font-size: 18px;
-  background-image: linear-gradient(135deg, #A01B46 11%, #40182A 93%);
+  background-color: #5EB6D2;
   transition: all 0.3s linear;
   text-align: center;
   user-select: none;
 
   &:hover{
     cursor: pointer;
-    background-image: linear-gradient(180deg, #032596 11%, #093315 79%);
+    background-color: #5eb7d2b3;
   }
   &:not(:last-child){
     margin-right: 10px;
@@ -410,9 +410,8 @@ a:not([href]):not([tabindex]){
   margin: 10px 0;
 
   &-item{
-    background: linear-gradient(to right, #1b20ff 0%, #c404ff 100%) !important;
-
-    border-radius: 20px;
+    background: #8a4fff;
+    border-radius: 0;
     max-width: 400px;
     transition: all 0.3s ease-in-out;
     border: 2px solid #000;

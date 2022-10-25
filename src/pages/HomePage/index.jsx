@@ -45,16 +45,6 @@ export default function Home() {
     <div className="home">
         <LoadingScreen state={loading} />
         <div className="container">
-            <div className="row">
-                <div className="col-md-12 col-12">
-                    <div className="row">
-                        {/* NFTs */}
-                        <div className="col-12">
-                            <NFTCart quantity={MAIN_DATA ? MAIN_DATA.length : 0}/>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div className="row">
                 <div className="col-md-5 col-12  mt-3">

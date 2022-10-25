@@ -45,7 +45,7 @@ export default function KickResultModal({showModalKickResult,setShowModalKickRes
 
 
                             <div className="result-kick-reward value-gray text-center">
-                                +{kickData.reward} KICKS
+                                +{kickData.reward} OBA
                             </div>
                         </div>
                     </div>

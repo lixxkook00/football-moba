@@ -10,7 +10,7 @@ function App() {
 
       <HeaderMobile />
 
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <Main />
       

@@ -90,7 +90,7 @@ export default function ClaimModal({showModalClaim,setShowModalClaim,totalToken}
                             <FormatAmount amount={calcClaimValue(amount,feeClaim,totalToken)} />
                         </span>
                         <span className="value">
-                            KICKS
+                            OBA
                         </span>
                         with Fee is &nbsp;
                         <span className="value">

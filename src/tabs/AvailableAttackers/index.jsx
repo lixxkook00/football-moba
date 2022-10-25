@@ -54,7 +54,7 @@ export default function AvailableAttackers() {
       </div>
 
       <div className="fee text-center">
-        Fee {feeHire} Kicks
+        Fee {feeHire} OBA
       </div>
 
       <div className="available-wrapper">

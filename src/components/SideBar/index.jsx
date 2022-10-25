@@ -98,15 +98,6 @@ export default function SideBar() {
                 </div>
             </Link>
 
-            {/* <Link to="/prediction" className={`sidebar-item ${status==="prediction" && "active"}`} onClick={() => handleActiveItem("prediction")}>
-                <div className="sidebar-item-icon">
-                    <i className="fa-solid fa-gamepad"></i>
-                </div>
-                <div className="sidebar-item-name">
-                    Prediction
-                </div>
-            </Link> */}
-
             <Link to="/dao" className={`sidebar-item ${status==="dao" && "active"}`} onClick={() => handleActiveItem("dao")}>
                 <div className="sidebar-item-icon">
                     <i className="fa-solid fa-book-open"></i>
