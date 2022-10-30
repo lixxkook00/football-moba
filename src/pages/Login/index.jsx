@@ -36,11 +36,11 @@ export default function Login() {
         <div className="container centering">
             <div className="body col-lg-5 col-md-6 col-12">
                 <div className="row">
-                    <div className="col-xl-12">
+                    {/* <div className="col-xl-12">
                         <div className="sign-up-title value-price">
                             Sign In
                         </div>
-                    </div>
+                    </div> */}
                     <div className="form-group-container col-xl-12">
                         <form className="form" id="signUpForm" onSubmit={(e) => handleSS(e)}>
                             <div className="form-group">
@@ -69,11 +69,11 @@ export default function Login() {
                                 </div>
                             </div>
 
-                            <div className="form-group-inline form-group">
+                            {/* <div className="form-group-inline form-group">
                                 <Link className="link text-white" to="/forgot-password">
                                     Forgot Password?
                                 </Link>
-                            </div>
+                            </div> */}
 
                             <div className="form-group-inline form-group">
                                 <div className="link">
@@ -85,26 +85,24 @@ export default function Login() {
 
                             <div className="form-group">
                                 <button type="submit" className="primary-button">
-                                    <span className="value-gray">
-                                        SIGN IN
-                                    </span>
+                                   SIGN IN
                                 </button>
                             </div>
 
-                            <Link to="/loginwallet" className="form-group centering">
+                            {/* <Link to="/loginwallet" className="form-group centering">
                                 <button type="submit" className="primary-button">
                                     <span className="value-gray">
                                          SIGN IN WITH WALLET
                                     </span>
                                 </button>
-                            </Link>
+                            </Link> */}
 
-                            <div className="text-center text-white form-group">
+                            {/* <div className="text-center text-white form-group">
                                 No Account?&nbsp;
                                 <Link className="link" to="/signup">
                                     Sign up here &gt;
                                 </Link>
-                            </div>
+                            </div> */}
                         </form>
                     </div>
                 </div>

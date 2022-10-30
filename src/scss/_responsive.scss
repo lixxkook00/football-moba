@@ -29,9 +29,9 @@
         display: none !important;
     }
 
-    .wrapper-content{
-        height: 500px;
-    }
+    // .wrapper-content{
+    //     height: 500px;
+    // }
 
     .header-item-value{
         max-width: 140px;
@@ -71,6 +71,10 @@
         padding-top: 70px;
     }
 
+    .football-player-cart-img{
+        padding: 0 !important;
+    }
+
     .mystery-box-opeing video{
         transform: scale(2.2) !important
     }
@@ -91,6 +95,16 @@
         &-item-value{
             flex: 1;
         }
+    }
+
+    .marketplace-cart{
+        padding: 20px !important;
+    }
+
+    .football-player-cart-energy{
+        display: flex;
+        align-items: center;
+        font-size: 14px !important;
     }
 
     .tokenomic,
@@ -156,7 +170,7 @@
     }
 
     .wrapper-content{
-        height: 480px;
+        // height: 480px;
         overflow-y: auto;
     }
 

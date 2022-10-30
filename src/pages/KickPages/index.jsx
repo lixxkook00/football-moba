@@ -25,15 +25,15 @@ export default function KickPages() {
         const result = await handleGetPlayerbyID(setLoading,navigate,id,setCurrentCartMain)
     }
 
-    // useEffect(() => {
-    //     if(id===""){
-    //         window.location.href='/penalty'
-    //     }
-    //     else{
-    //         getInforPlayer(id)
-    //     }
+    useEffect(() => {
+        if(id===""){
+            window.location.href='/penalty'
+        }
+        else{
+            getInforPlayer(id)
+        }
 
-    // },[])
+    },[])
 
     // handle back
     const back = () => {
@@ -87,81 +87,101 @@ export default function KickPages() {
 
     const [mutedState,setMutedState] = useState(false)
 
-    const fakeKick = () => {
+    const fakeKick = async () => {
         if(currentSide !== ""){
             setIsRunning(false)
             setLoading(true)
 
-            setStateVideo(true)
+            const result = await handleKick(currentCartMain.id,setLoading,navigate,powerPercent)
+            console.log(result)
+
+            let url = ""
 
             console.log("power",powerPercent)
 
-            if(window.innerWidth < 740){
-                if(powerPercent > 80){
-                    if(currentSide === "right-down" || currentSide === "right-up"){
-                        setUrlVideo(`miss-right-over-mobile.mp4`)
-                    }else if(currentSide === "left-down" || currentSide === "left-up"){
-                        setUrlVideo(`miss-left-over-mobile.mp4`)
-                    }else{
-                        setUrlVideo(`miss-${currentSide}-over-mobile.mp4`)
-                    }
-                }
-                else if(powerPercent < 30){
-                    setUrlVideo(`miss-${currentSide}-mobile.mp4`)
-                }
-                else{
-                    setUrlVideo(`goal-${currentSide}-mobile.mp4`)
-                }
-            }else{
-                if(powerPercent > 80){
-                    if(currentSide === "right-down" || currentSide === "right-up"){
-                        setUrlVideo(`miss-right-over.mp4`)
-                    }else if(currentSide === "left-down" || currentSide === "left-up"){
-                        setUrlVideo(`miss-left-over.mp4`)
-                    }else{
-                        setUrlVideo(`miss-${currentSide}-over.mp4`)
-                    }
-                }
-                else if(powerPercent < 30){
-                    setUrlVideo(`miss-${currentSide}.mp4`)
-                }
-                else{
-                    setUrlVideo(`goal-${currentSide}.mp4`)
-                }
-            } 
-        }
-    }
-
-    const kick = async () => {
-        if(currentSide !== ""){
-            setLoading(true)
-            const result = await handleKick(currentCartMain.id,setLoading,navigate)
-            let url = ""
-    
             if(result !==""){
-                // console.log("width nef ",window.innerWidth)
-
-                // get url video
-                if(window.innerWidth > 740){
-                    if(result.result){
-                        url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}.mp4`
-                    }else{
-                        url = `miss-${currentSide}.mp4`
+                if(window.innerWidth < 740){
+                    if(powerPercent > 80){
+                        if(currentSide === "right-down" || currentSide === "right-up"){
+                            url = `miss-right-over-mobile.mp4`
+                        }else if(currentSide === "left-down" || currentSide === "left-up"){
+                            url = `miss-left-over-mobile.mp4`
+                        }else{
+                            url = `miss-${currentSide}-over-mobile.mp4`
+                        }
                     }
-                }else{
-                    if(result.result){
-                        url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}-mobile.mp4`
-                    }else{
+                    else if(powerPercent < 30){
                         url = `miss-${currentSide}-mobile.mp4`
                     }
-                }
-    
-                // play this video
-                setResultAward(result)
-
+                    else{
+                        if(result.result){
+                            url = `goal-${currentSide}-mobile.mp4`
+                        }else{
+                            url = `miss-${currentSide}-mobile.mp4`
+                        }
+                        
+                    }
+                }else{
+                    if(powerPercent > 80){
+                        if(currentSide === "right-down" || currentSide === "right-up"){
+                            url = `miss-right-over.mp4`
+                        }else if(currentSide === "left-down" || currentSide === "left-up"){
+                            url = `miss-left-over.mp4`
+                        }else{
+                            url = `miss-${currentSide}-over.mp4`
+                        }
+                    }
+                    else if(powerPercent < 30){
+                        url = `miss-${currentSide}.mp4`
+                    }
+                    else{
+                        if(result.result){
+                            url = `goal-${currentSide}.mp4`
+                        }else{
+                            url = `miss-${currentSide}.mp4`
+                        }
+                        
+                    }
+                } 
             }
+
+            // play this video
+            setUrlVideo(url)
+            setResultAward(result)
+            setStateVideo(true)
         }
     }
+
+    // const kick = async () => {
+    //     if(currentSide !== ""){
+    //         setLoading(true)
+    //         const result = await handleKick(currentCartMain.id,setLoading,navigate)
+    //         let url = ""
+    
+    //         if(result !==""){
+    //             // console.log("width nef ",window.innerWidth)
+
+    //             // get url video
+    //             if(window.innerWidth > 740){
+    //                 if(result.result){
+    //                     url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}.mp4`
+    //                 }else{
+    //                     url = `miss-${currentSide}.mp4`
+    //                 }
+    //             }else{
+    //                 if(result.result){
+    //                     url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}-mobile.mp4`
+    //                 }else{
+    //                     url = `miss-${currentSide}-mobile.mp4`
+    //                 }
+    //             }
+    
+    //             // play this video
+    //             setResultAward(result)
+
+    //         }
+    //     }
+    // }
 
     // handle show award
     const [award,setAward] = useState("")

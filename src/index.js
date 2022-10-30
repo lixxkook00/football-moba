@@ -12,7 +12,7 @@ const token = sessionStorage.getItem("token")
 
 
 
-axios.defaults.baseURL = 'https://api.mightyOBA.club/';
+axios.defaults.baseURL = 'http://143.198.208.59:8080';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 

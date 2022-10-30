@@ -6,7 +6,7 @@ import WorkingAttackers from '../../tabs/WorkingAttackers'
 import TotalPlayer from '../../components/TotalPlayer'
 
 import { handleGetPlayers } from '../../utils/handlePlayers'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LoadingScreen from '../LoadingScreen'
 import OnMarket from '../../tabs/OnMarket'
 
@@ -18,58 +18,64 @@ export default function PlayersPage() {
 
     let navigate = useNavigate()
 
-    // const getUser = async () => {
-    //     setLoading(true)
-    //     const result = await handleGetPlayers(setLoading,navigate,setData)
-    // }
+    const getUser = async () => {
+        setLoading(true)
+        const result = await handleGetPlayers(setLoading,navigate,setData)
+    }
 
-    // useEffect(() => {
-    //     getUser()
-    // },[])
+    useEffect(() => {
+        getUser()
+    },[])
 
     const [activeTab,setActiveTab] = useState("available")
 
   return (
-    <div className="home">
-        <div className="container">
+    <div className="container">
 
-            <LoadingScreen state={loading} />
+        <LoadingScreen state={loading} />
 
-            <TotalPlayer value={data?.length ? data.length : 0}/>
+        <Link to="/" className="kick-back">
+            <i className="fa-solid fa-angle-left"></i>
+            <span className="value">
+                BACK
+            </span>
+        </Link>
 
-            <div className="control centering">
-                <div className={`control-item primary-button ${activeTab === "available" ? "active" : ""}`}  onClick={() => setActiveTab("available")}>
-                    Available Players
-                </div>
+        <TotalPlayer value={data?.length ? data.length : 0}/>
 
-                <div className={`control-item primary-button ${activeTab === "working" ? "active" : ""}`} onClick={() => setActiveTab("working")}>
-                    Working Players
-                </div>
-
-                <div className={`control-item primary-button ${activeTab === "onmarket" ? "active" : ""}`} onClick={() => setActiveTab("onmarket")}>
-                    On Market
-                </div>
+        <div className="control centering">
+            <div className={`control-item primary-button ${activeTab === "available" ? "active" : ""}`}  onClick={() => setActiveTab("available")}>
+                Available Players
             </div>
 
-            {
-                activeTab === "available"
-                &&
-                <AvailableAttackers />
-            }
+            <div className={`control-item primary-button ${activeTab === "working" ? "active" : ""}`} onClick={() => setActiveTab("working")}>
+                Working Players
+            </div>
 
-            {
-                activeTab === "working"
-                &&
-                <WorkingAttackers data={data}/>
-            }
-
-            {
-                activeTab === "onmarket"
-                &&
-                <OnMarket data={data}/>
-            }
-
+            <div className={`control-item primary-button ${activeTab === "onmarket" ? "active" : ""}`} onClick={() => setActiveTab("onmarket")}>
+                On Market
+            </div>
         </div>
+
+        {
+            activeTab === "available"
+            &&
+            <AvailableAttackers />
+        }
+
+        {
+            activeTab === "working"
+            &&
+            <WorkingAttackers data={data}/>
+        }
+
+        {
+            activeTab === "onmarket"
+            &&
+            <OnMarket data={data}/>
+        }
+
     </div>
+
   )
 }

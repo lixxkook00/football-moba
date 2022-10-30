@@ -21,7 +21,7 @@ export default function MenuPage() {
                     </div>
 
                     <div className="col-lg-3 col-6">
-                        <Link to='kick' className="menu-item menu-item-l">
+                        <Link to='penalty' className="menu-item menu-item-l">
                             <div className="centering">
                                 <img src="./images/icon02.png" alt="" />
                             </div>

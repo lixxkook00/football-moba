@@ -35,31 +35,33 @@ export default function PenaltyPage() {
   return (
     <div className="home penalty">
         <div className="container">
-            <TotalPlayer value={MAIN_DATA ? MAIN_DATA.length : 0} />
 
-            <Filter setFilterOption={setFilterOption}/>
+          <Link to="/" className="kick-back">
+              <i className="fa-solid fa-angle-left"></i>
+              <span className="value">
+                  BACK
+              </span>
+          </Link>
 
-            <div className="wrapper-content row mt-20">
-              {
-                data?.map((item,index) => {
-                  if(item.is_selling===0){
-                    return (
-                      <PenaltyCart 
-                        item={item}
-                        key={index}
-                      />
-                    ) 
-                  }
-                })
-              }
-            </div>
-          {/* 
-            <div className="centering">
-              <Link to={`/kick?id=${currentCart}`} className={`penalty-button primary-button ${currentCart!==""? "active" : ""}`}>
-                Choose
-              </Link>
-            </div> 
-          */}
+          <TotalPlayer value={MAIN_DATA ? MAIN_DATA.length : 0} />
+
+          <Filter setFilterOption={setFilterOption}/>
+
+          <div className="wrapper-content row mt-20">
+            {
+              data?.map((item,index) => {
+                if(item.is_selling===0){
+                  return (
+                    <PenaltyCart 
+                      item={item}
+                      key={index}
+                    />
+                  ) 
+                }
+              })
+            }
+          </div>
+
         </div>
     </div>
   )

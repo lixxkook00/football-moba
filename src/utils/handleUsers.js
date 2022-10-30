@@ -128,7 +128,7 @@ export async function handleLogIn(e,setError,setLoading,navigate) {
                     
                     setError("")
                     setLoading(false)
-                    window.location.href = "/home"
+                    window.location.href = "/"
                     return ""
                 }
 

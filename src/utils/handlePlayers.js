@@ -139,10 +139,11 @@ export async function handleHirePlayers(setLoading,navigate) {
     return res
 }
 
-export async function handleKick(id,setLoading,navigate) {
+export async function handleKick(id,setLoading,navigate,powerPercent) {
     const body = new FormData();
 
     body.append("playerId", id)
+    body.append("power", powerPercent)
 
     const res = await axios.post('/players/process-kick',body)
     .then(

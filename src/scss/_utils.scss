@@ -325,8 +325,8 @@ a:not([href]):not([tabindex]){
 // custom modal
 
 .modal-content{
-  border-radius: 30px;
-  border: 3px solid #881a3f;
+  border-radius: 15px;
+  border: 3px solid #5EB6D2;
   position: relative;
 }
 
@@ -399,7 +399,7 @@ a:not([href]):not([tabindex]){
 
   i{
     font-size: 18px;
-    color: #881a3f;
+    color: #5EB6D2;
   }
 }
 
@@ -411,10 +411,11 @@ a:not([href]):not([tabindex]){
 
   &-item{
     background: #8a4fff;
-    border-radius: 0;
+    border-radius: 10px;
     max-width: 400px;
     transition: all 0.3s ease-in-out;
-    border: 2px solid #000;
+    border: 2px solid #8A4FFF;
+    margin-bottom: 4px;
 
     &:not(:last-child){
       margin-right: 12px;
@@ -425,13 +426,13 @@ a:not([href]):not([tabindex]){
     }
 
     &.active{
-      border: 2px solid #e9b8f9;
+      border: 2px solid #000;
     }
   }
 }
 
 .wrapper-content{
-  height: 600px;
+  // height: 600px;
   overflow-y: auto;
 
   /* Hide scrollbar for Chrome, Safari and Opera */
@@ -543,7 +544,7 @@ a:not([href]):not([tabindex]){
 .hire-player{
   max-width: 300px;
   padding: 20px 10px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .claim-modal{
@@ -771,4 +772,12 @@ iframe{
     font-size: 22px;
 
   }
+}
+
+.modal-dialog{
+  // margin: 0 !important; 
+}
+
+.modal-content{
+  width: auto;
 }

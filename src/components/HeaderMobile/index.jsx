@@ -6,11 +6,14 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Divider from '@mui/material/Divider';
 
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { handleLogout } from '../../utils/handleUsers';
 
 export default function HeaderMobile() {
 
     const [status,setStatus] = useState("home")
+
+    let navigate = useNavigate()
 
     // handle current page
     const [currentPage,setCurrentPage] = useState("")
@@ -62,163 +65,65 @@ export default function HeaderMobile() {
                 </div>
             </div>
 
-            {
-                currentPage === "landing"
-                ?
-                    <>
-                        <a href="#home" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-house"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                Home
-                            </div>
-                        </a>
+            <>
+                <Divider />
 
-                        <a href="#about" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-address-card"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                About
-                            </div>
-                        </a>
+                <Link to="/home" className={`sidebar-item ${status==="home" && "active"}`} onClick={() => handleActiveItem("home")}>
+                    <div className="sidebar-item-icon">
+                        <i className="fa-solid fa-trophy"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Home
+                    </div>
+                </Link>
 
-                        <a href="#nft" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                              <i className="fa-brands fa-hive"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                NFTs
-                            </div>
-                        </a>
+                <Link to="/penalty" className={`sidebar-item ${status==="penalty" && "active"}`} onClick={() => handleActiveItem("penalty")}>
+                    <div className="sidebar-item-icon">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Play Game
+                    </div>
+                </Link>
 
-                        <a href="#gameplay" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-gamepad"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                Gameplay
-                            </div>
-                        </a>
+                <Link to="/players" className={`sidebar-item ${status==="players" && "active"}`} onClick={() => handleActiveItem("players")}>
+                    <div className="sidebar-item-icon">
+                        <i className="fa-solid fa-person-running"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Squad
+                    </div>
+                </Link>
+                
+                <Link to="/players" className={`sidebar-item ${status==="team" && "active"}`} onClick={() => handleActiveItem("team")}>
+                    <div className="sidebar-item-icon">
+                        <i className="fa-solid fa-users"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Hire Player
+                    </div>
+                </Link>
 
+                <Link to="/marketplace" className={`sidebar-item ${status==="marketplace" && "active"}`} onClick={() => handleActiveItem("marketplace")}>
+                    <div className="sidebar-item-icon">
+                        <i className="fa-solid fa-futbol"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Marketplace
+                    </div>
+                </Link>
 
-                        <a href="#tokenomic" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-coins"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                Tokenomic
-                            </div>
-                        </a>
-
-                        <a href="#roadmap" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-map"></i>
-                            </div>
-                            <div className="sidebar-item-name">
-                                Roadmap
-                            </div>
-                        </a>
-
-                        <a href="#roadmap" className={`sidebar-item `}>
-                            <div className="sidebar-item-icon">
-                                <i className="fa-solid fa-book"></i>
-                            </div>
-                            <a href={"https://whitepaper.mightyOBA.club"} className="sidebar-item-name">
-                                Whitepaper
-                            </a>
-                        </a>
-                    </>
-                :
-                <>
-                    <Divider />
-
-                    <Link to="/home" className={`sidebar-item ${status==="home" && "active"}`} onClick={() => handleActiveItem("home")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-trophy"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Home
-                        </div>
-                    </Link>
-
-                    <Link to="/players" className={`sidebar-item ${status==="players" && "active"}`} onClick={() => handleActiveItem("players")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-person-running"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Players
-                        </div>
-                    </Link>
-
-                    <Link to="/penalty" className={`sidebar-item ${status==="penalty" && "active"}`} onClick={() => handleActiveItem("penalty")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-table-cells"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Penalty
-                        </div>
-                    </Link>
-
-                    <Link to="/team" className={`sidebar-item ${status==="team" && "active"}`} onClick={() => handleActiveItem("team")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-users"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Team
-                        </div>
-                    </Link>
-
-                    <Link to="/staking" className={`sidebar-item ${status==="staking" && "active"}`} onClick={() => handleActiveItem("staking")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-users"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Staking
-                        </div>
-                    </Link>
-
-                    <Link to="/training" className={`sidebar-item ${status==="training" && "active"}`} onClick={() => handleActiveItem("training")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-bottle-water"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Training
-                        </div>
-                    </Link>
-
-                    <Link to="/prediction" className={`sidebar-item ${status==="prediction" && "active"}`} onClick={() => handleActiveItem("prediction")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-gamepad"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Prediction
-                        </div>
-                    </Link>
-
-                    <Link to="/marketplace" className={`sidebar-item ${status==="marketplace" && "active"}`} onClick={() => handleActiveItem("marketplace")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-futbol"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            Marketplace
-                        </div>
-                    </Link>
-
-                    <Link to="/dao" className={`sidebar-item ${status==="dao" && "active"}`} onClick={() => handleActiveItem("dao")}>
-                        <div className="sidebar-item-icon">
-                            <i className="fa-solid fa-book-open"></i>
-                        </div>
-                        <div className="sidebar-item-name">
-                            DAO
-                        </div>
-                    </Link>
-                </>
-            }
+                <div to="/players" className='sidebar-item' onClick={() => handleLogout(navigate)}>
+                    <div className="sidebar-item-icon">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Log out
+                    </div>
+                </div>
+            </>
             
-            
-
+        
         </Box>
     );
 

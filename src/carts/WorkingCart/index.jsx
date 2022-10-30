@@ -43,11 +43,11 @@ export default function WorkingCart({data,setShowModalSell,setCurrentCart}) {
           <img src={`./images/${data?.rarity}-button.png`} alt="" />
         </div>
 
-        <div className="sell-button centering" onClick={() => sell()}>
+        {/* <div className="sell-button centering" onClick={() => sell()}>
           <span className="">
             SELL
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   )

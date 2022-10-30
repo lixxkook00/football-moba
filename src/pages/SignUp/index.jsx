@@ -26,13 +26,13 @@ export default function SignUp() {
         <div className="container centering">
             <div className="body col-lg-5 col-md-6 col-12">
                 <div className="row">
-                    <div className="col-xl-12">
+                    {/* <div className="col-xl-12">
                         <div className="sign-up-title">
                             <span className="value-price">
                                 Register
                             </span>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="form-group-container col-xl-12">
                         <form className="form" id="signUpForm" onSubmit={(e) => handleSignUp(e)}>
                             <div className="form-group">
@@ -73,9 +73,7 @@ export default function SignUp() {
 
                             <div className="form-group">
                                 <button type="submit" className="primary-button">
-                                    <span className="value-gray">
-                                        register
-                                    </span>
+                                    Sign Up
                                 </button>
                             </div>
                             <div className="text-center form-group text-white">

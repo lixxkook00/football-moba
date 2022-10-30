@@ -3,7 +3,7 @@ import './Header.scss'
 
 import FormatAmount from '../FormatAmount'
 
-import {handleGetInforUser} from '../../utils/handleUsers'
+import {handleGetInforUser, handleLogout} from '../../utils/handleUsers'
 import { useNavigate } from 'react-router-dom'
 import { FIFABalance } from '../../ethereum/walletController'
 
@@ -12,7 +12,6 @@ export default function Header() {
     const [walletAddress,setWalletAddress] = useState(sessionStorage.getItem('addressWallet'))
     const [balance,setBalance] = useState(0)
     const [balanceToken,setBalanceToken] = useState(0);
-    const [ticket,setTicket] = useState(0);
     
     let navigate = useNavigate()
 
@@ -22,7 +21,6 @@ export default function Header() {
         await setBalanceToken(tokenBalance)
         if(result !== ""){
             await setBalance(result?.data?.token)
-            await setTicket(result?.data?.special_ticket)
         }
     }
 
@@ -34,12 +32,18 @@ export default function Header() {
         <div className="container">
             <header className="header row">
                 <div className="col-lg-3 col-md-12">
-                    <div className="header-item">
-                        <div className="header-item-icon">
-                            <img src="./images/token-kichs.png" alt="" />
+                    <div className="d-flex align-items-center">
+                        <div className="header-item">
+                            <div className="header-item-icon">
+                                <img src="./images/token-kichs.png" alt="" />
+                            </div>
+                            <div className="header-item-value text-overflow value">
+                                <FormatAmount amount={balance ? balance : 0}/>
+                            </div>
                         </div>
-                        <div className="header-item-value text-overflow value">
-                            <FormatAmount amount={balanceToken ? balanceToken : 0}/>
+
+                        <div className="header-logout centering hidden-m-t" onClick={() => handleLogout(navigate)}>
+                            <i className="fa-solid fa-right-from-bracket"></i>
                         </div>
                     </div>
                 </div>

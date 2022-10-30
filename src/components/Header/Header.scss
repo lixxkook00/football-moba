@@ -16,7 +16,6 @@
         background-color: #fff;
         border-radius: 20px;
         padding: 4px 6px;
-        margin-top: 10px;
 
         &:not(:last-child){
             margin-right: 10px;
@@ -38,6 +37,21 @@
         img{
             height: 100%;
             width: auto;
+        }
+    }
+
+    &-logout{
+
+        &:hover{
+            cursor: pointer;
+            i{
+                color: #5faeea;
+            }
+        }
+
+        i{
+            color: #fff;
+            font-size: 20px;
         }
     }
 }

@@ -25,26 +25,26 @@ export default function Router({audio}) {
 
   let navigate = useNavigate();
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const url = window.location.pathname.split('/')[1]
+    const url = window.location.pathname.split('/')[1]
 
-  //   if(
-  //     sessionStorage.getItem('token') === null
-  //     &&
-  //     url !== ""  
-  //     &&
-  //     url !== "login" 
-  //     && 
-  //     url !== "signup" 
-  //     && 
-  //     url !== "loginwallet"
-  //     && 
-  //     url !== "forgot-password"
-  //   ){
-  //     navigate("/login") 
-  //   }
-  // })
+    if(
+      sessionStorage.getItem('token') === null
+      &&
+      url !== ""  
+      &&
+      url !== "login" 
+      && 
+      url !== "signup" 
+      && 
+      url !== "loginwallet"
+      && 
+      url !== "forgot-password"
+    ){
+      navigate("/login") 
+    }
+  })
 
   return (
     <div className="content mt-50 hidden-scroll-bar">
@@ -65,7 +65,7 @@ export default function Router({audio}) {
 
           <Route path="/training" element={<CommingSoonPage />} />
 
-          <Route path="/marketplace" element={<MarketplacePage />} />
+          <Route path="/marketplace" element={<CommingSoonPage />} />
 
           <Route path="/mysterybox" element={<MysteryBoxOpeing />} />
 
