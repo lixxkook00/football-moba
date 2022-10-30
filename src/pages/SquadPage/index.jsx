@@ -7,6 +7,7 @@ import Filter from '../../components/Filter'
 import TotalPlayer from '../../components/TotalPlayer'
 import { handleGetPlayers } from '../../utils/handlePlayers'
 import { handleFilter } from '../../utils/handleUtils'
+import LoadingScreen from '../LoadingScreen'
 
 export default function SquadPage() {
 
@@ -36,6 +37,8 @@ export default function SquadPage() {
     <div className="home penalty">
         <div className="container">
 
+          <LoadingScreen state={loading} />
+
           <Link to="/" className="kick-back">
               <i className="fa-solid fa-angle-left"></i>
               <span className="value">
@@ -55,6 +58,8 @@ export default function SquadPage() {
                     <SquadCart 
                       item={item}
                       key={index}
+                      setLoading={setLoading}
+                      navigate={navigate}
                     />
                   ) 
                 }

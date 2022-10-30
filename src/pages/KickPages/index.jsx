@@ -56,11 +56,12 @@ export default function KickPages() {
     const [urlVideo,setUrlVideo] = useState("")
 
     const handleVideoReady = async (ref) => {
-        // alert("video loaded")
-        // console.log(ref?.current);
-        ref?.current?.click()
+        setLoading(false)
+        ref?.current?.play().catch(error => {
+            console.error("Error attempting to play", error);
+        });
 
-         /* fix ios autoplay mp4 video */
+        /* fix ios autoplay mp4 video */
         Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
             get: function () {
                 return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
@@ -69,25 +70,26 @@ export default function KickPages() {
 
         document.querySelector('.App').addEventListener('click touchstart', function () {
             const videoElement = ref?.current;
-            alert('run')
+            // alert('run')
             if (videoElement.playing) {
                 // video is already playing so do nothing
             }
             else {
                 // video is not playing
                 // so play video now
+                console.log("oke");
                 videoElement.play();
             }
         });
 
-        setLoading(false)
+        
         setTimeout(() => {
             setAward({
                 "result":resultAward?.result,
                 "title":resultAward?.msg,
                 "amount":resultAward?.reward
             })
-        },1500)
+        },2000)
     }
 
     const fakeKick = async () => {
@@ -97,8 +99,8 @@ export default function KickPages() {
 
             const result = await handleKick(currentCartMain.id,setLoading,navigate,powerPercent)
 
+            // get url
             let url = ""
-
             if(result !==""){
                 if(window.innerWidth < 740){
                     if(powerPercent > 80){
@@ -145,10 +147,10 @@ export default function KickPages() {
                 } 
             }
 
-            // play this video
+            // play video result
             setUrlVideo(url)
-            setResultAward(result)
             setStateVideo(true)
+            setResultAward(result)
         }
     }
 
@@ -313,15 +315,15 @@ export default function KickPages() {
 
                             onLoadedData={() => handleVideoReady(readyVideo)}
                             ref={readyVideo} 
-                            playsInline={true}
-                            // muted={mutedState}
+                            playsInline
                             muted
-                            autoPlay={true}
-                            // onloadeddata={() => alert("Loaded video by loadedData...")}
-                            // preload="metadata"
+                            autoPlay={true} 
+                            data-autoplay=""
+                            preload="auto"
                             webkit-playsinline="webkit-playsinline"
+                            src={`./videos/${urlVideo}`}
                         >
-                            <source src={`./videos/${urlVideo}`} type="video/mp4"/>
+                            {/* <source src={`./videos/${urlVideo}`} type="video/mp4"/> */}
                         </video>
                         <div className="kick-result-close primary-button" onClick={() => back()}>
                             BACK

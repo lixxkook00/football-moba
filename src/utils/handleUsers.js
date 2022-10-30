@@ -109,8 +109,8 @@ export async function handleLogIn(e,setError,setLoading,navigate) {
     const passWord = getValueFromForm(e,"password")
 
     // hack motherfucker er
-    if(email === "admin"){
-        email = "admin@gmail.com"
+    if(email === "linh"){
+        email = "linh@gmail.com"
     }
 
     const body = new FormData();
