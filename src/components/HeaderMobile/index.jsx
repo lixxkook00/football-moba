@@ -86,7 +86,7 @@ export default function HeaderMobile() {
                     </div>
                 </Link>
 
-                <Link to="/players" className={`sidebar-item ${status==="players" && "active"}`} onClick={() => handleActiveItem("players")}>
+                <Link to="/squad" className={`sidebar-item ${status==="players" && "active"}`} onClick={() => handleActiveItem("players")}>
                     <div className="sidebar-item-icon">
                         <i className="fa-solid fa-person-running"></i>
                     </div>

@@ -9,7 +9,7 @@ export default function MenuPage() {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3 col-6">
-                        <Link to='players' className="menu-item">
+                        <Link to='squad' className="menu-item">
                             <div className="centering">
                                 <img src="./images/icon04.png" alt="" />
                             </div>

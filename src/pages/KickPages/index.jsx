@@ -9,8 +9,13 @@ export default function KickPages() {
 
     const [loading,setLoading] = useState(false)
 
-    const [showModalKickResult,setShowModalKickResult] = useState()
-    const [kickData,setKickData] = useState({})
+    // const [showModalKickResult,setShowModalKickResult] = useState()
+    const [alertKick,setAlertKick] = useState(false)
+    useEffect(() => {
+        setTimeout(() => {
+            setAlertKick(false)
+        },1000)
+    },[alertKick])
 
     const [currentCartMain,setCurrentCartMain] = useState({})
 
@@ -85,19 +90,14 @@ export default function KickPages() {
         },1500)
     }
 
-    const [mutedState,setMutedState] = useState(false)
-
     const fakeKick = async () => {
         if(currentSide !== ""){
             setIsRunning(false)
             setLoading(true)
 
             const result = await handleKick(currentCartMain.id,setLoading,navigate,powerPercent)
-            console.log(result)
 
             let url = ""
-
-            console.log("power",powerPercent)
 
             if(result !==""){
                 if(window.innerWidth < 740){
@@ -152,37 +152,6 @@ export default function KickPages() {
         }
     }
 
-    // const kick = async () => {
-    //     if(currentSide !== ""){
-    //         setLoading(true)
-    //         const result = await handleKick(currentCartMain.id,setLoading,navigate)
-    //         let url = ""
-    
-    //         if(result !==""){
-    //             // console.log("width nef ",window.innerWidth)
-
-    //             // get url video
-    //             if(window.innerWidth > 740){
-    //                 if(result.result){
-    //                     url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}.mp4`
-    //                 }else{
-    //                     url = `miss-${currentSide}.mp4`
-    //                 }
-    //             }else{
-    //                 if(result.result){
-    //                     url = `goal-${currentSide}-${Math.floor(Math.random() * 2)+1}-mobile.mp4`
-    //                 }else{
-    //                     url = `miss-${currentSide}-mobile.mp4`
-    //                 }
-    //             }
-    
-    //             // play this video
-    //             setResultAward(result)
-
-    //         }
-    //     }
-    // }
-
     // handle show award
     const [award,setAward] = useState("")
 
@@ -204,7 +173,7 @@ export default function KickPages() {
         if (isRunning) {
             myInterval.current  = setInterval(() => {
                 serPowerPercent(powerPercent => powerPercent + 1)
-            }, 10);
+            }, 7);
         } else {
             clearInterval(myInterval.current );
             myInterval.current  = null;
@@ -212,12 +181,16 @@ export default function KickPages() {
     }, [isRunning]);
 
     const handeHold = (e) => {
-        e.preventDefault();
-        setIsRunning(true)
+        if(currentSide !== ""){
+            e.preventDefault();
+            setIsRunning(true)
+        }
+        else{
+            setAlertKick(true)
+        }
     }
 
     const handeFinish = () => {
-        // console.log("kick now in", powerPercent);
         fakeKick()
     }
 
@@ -317,7 +290,7 @@ export default function KickPages() {
                 <div className="kick-button centering">
                     <div 
                         className="menu-item-name" 
-                        onMouseDown={handeHold}
+                        onMouseDown={(e) => handeHold(e)}
                         onTouchStart={(e) => handeHold(e)}
 
                         onMouseUp={handeFinish} 
@@ -374,7 +347,14 @@ export default function KickPages() {
 
             </div>
 
-            {/* <KickResultModal showModalKickResult={showModalKickResult} setShowModalKickResult={setShowModalKickResult} kickData={kickData} id={id}/> */}
+            {/* alert choose side */}
+            {
+                alertKick
+                &&
+                <div className="alert-side centering">
+                    choose the side before kicking the ball
+                </div>
+            }
         </div>
     )
 }

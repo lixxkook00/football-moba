@@ -9,7 +9,19 @@
     background: rgba(0, 0, 0, 0.769) url(../../../public/images/background02.png) no-repeat center center;
     background-size: auto 100%;
 
-    
+    .alert-side{
+        position: fixed;
+        top: 30vh;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+
+        font-weight: 800;
+        color: #F5FA16;
+        text-transform: capitalize;
+        transition: all 0.4s ease-in-out;
+        animation: alert-kick 1s ease-in-out;
+    }
 
     &-button{
         position: absolute;
@@ -301,7 +313,7 @@
     .kick .demo {
         transform: scale(0.5);
         left: 0;
-        top: 12%;
+        top: 8%;
     }
     .kick-result{
         video{
@@ -312,7 +324,7 @@
 
     .kick-wrapper{
         padding: 4px;
-        padding-top: 100px;
+        padding-top: 70px;
     }
 
     .kick-goal{
@@ -320,4 +332,7 @@
         width: 85vw;
     }
 
+    .kick-button .menu-item-name {
+        padding: 20px;
+    }
 }

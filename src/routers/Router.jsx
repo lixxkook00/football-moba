@@ -20,6 +20,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import StakingPage from '../pages/StakingPage';
 import NotFound404 from '../pages/NotFound404';
 import MenuPage from '../pages/MenuPage';
+import SquadPage from '../pages/SquadPage';
 
 export default function Router({audio}) {
 
@@ -31,8 +32,6 @@ export default function Router({audio}) {
 
     if(
       sessionStorage.getItem('token') === null
-      &&
-      url !== ""  
       &&
       url !== "login" 
       && 
@@ -58,6 +57,8 @@ export default function Router({audio}) {
           <Route path="/players" element={<PlayersPage />} />
 
           <Route path="/penalty" element={<PenaltyPage />} />
+
+          <Route path="/squad" element={<SquadPage />} />
 
           <Route path="/kick" element={<KickPages />} />
 
