@@ -52,7 +52,7 @@ export default function Router({audio}) {
 
           <Route exact path="/" element={<MenuPage />} />
 
-          <Route path="/home" element={<HomePage/>} />
+          <Route path="/wallet" element={<HomePage/>} />
           
           <Route path="/players" element={<PlayersPage />} />
 

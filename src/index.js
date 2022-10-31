@@ -10,8 +10,6 @@ const token = sessionStorage.getItem("token")
 
 // axios.defaults.baseURL = 'http://192.168.1.56:8080/';
 
-
-
 axios.defaults.baseURL = 'http://143.198.208.59:8080';
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

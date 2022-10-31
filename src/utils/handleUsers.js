@@ -11,7 +11,7 @@ export async function handleChangePassword(e,setError,setLoading,navigate) {
 
     const body = new FormData();
 
-    body.append("email", email)
+    body.append("username", email)
     body.append("password", passWord)
 
     const res= await axios.post('/users/login',body)
@@ -109,13 +109,13 @@ export async function handleLogIn(e,setError,setLoading,navigate) {
     const passWord = getValueFromForm(e,"password")
 
     // hack motherfucker er
-    if(email === "linh"){
-        email = "linh@gmail.com"
-    }
+    // if(email === "linh"){
+    //     email = "linh@gmail.com"
+    // }
 
     const body = new FormData();
 
-    body.append("email", email)
+    body.append("username", email)
     body.append("password", passWord)
 
     const res= await axios.post('/users/login',body)

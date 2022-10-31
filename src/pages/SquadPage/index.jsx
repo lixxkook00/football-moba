@@ -52,6 +52,14 @@ export default function SquadPage() {
 
           <div className="wrapper-content row mt-20">
             {
+              data
+              ?
+              <div className="centering w-100">
+                <span className="text-center value">
+                  Empty
+                </span>
+              </div>
+              :
               data?.map((item,index) => {
                 if(item.is_selling===0){
                   return (

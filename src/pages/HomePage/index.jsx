@@ -10,7 +10,7 @@ import DepositModal from '../../Modals/DepositModal'
 
 import LoadingScreen from '../LoadingScreen'
 import { handleGetInforUser } from '../../utils/handleUsers'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 // import { useNavigate } from 'react-router-dom'
 // import { handleGetPlayers } from '../../utils/handlePlayers'
@@ -46,7 +46,14 @@ export default function Home() {
   return (
     <div className="home">
         <LoadingScreen state={loading} />
+
         <div className="container">
+            <Link to="/" className="kick-back">
+                <i className="fa-solid fa-angle-left"></i>
+                <span className="value">
+                    BACK
+                </span>
+            </Link>
 
             <div className="row">
                 <div className="col-md-5 col-12  mt-3">

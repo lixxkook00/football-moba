@@ -68,7 +68,7 @@ export default function HeaderMobile() {
             <>
                 <Divider />
 
-                <Link to="/home" className={`sidebar-item ${status==="home" && "active"}`} onClick={() => handleActiveItem("home")}>
+                <Link to="/" className={`sidebar-item ${status==="home" && "active"}`} onClick={() => handleActiveItem("home")}>
                     <div className="sidebar-item-icon">
                         <i className="fa-solid fa-trophy"></i>
                     </div>
@@ -79,7 +79,7 @@ export default function HeaderMobile() {
 
                 <Link to="/penalty" className={`sidebar-item ${status==="penalty" && "active"}`} onClick={() => handleActiveItem("penalty")}>
                     <div className="sidebar-item-icon">
-                        <i class="fa-solid fa-gamepad"></i>
+                        <i className="fa-solid fa-gamepad"></i>
                     </div>
                     <div className="sidebar-item-name">
                         Play Game
@@ -113,9 +113,18 @@ export default function HeaderMobile() {
                     </div>
                 </Link>
 
+                <Link to="/wallet" className={`sidebar-item ${status==="wallet" && "active"}`} onClick={() => handleActiveItem("wallet")}>
+                    <div className="sidebar-item-icon">
+                        <i className="fa-solid fa-wallet"></i>
+                    </div>
+                    <div className="sidebar-item-name">
+                        Wallet
+                    </div>
+                </Link>
+
                 <div to="/players" className='sidebar-item' onClick={() => handleLogout(navigate)}>
                     <div className="sidebar-item-icon">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <i className="fa-solid fa-arrow-right-from-bracket"></i>
                     </div>
                     <div className="sidebar-item-name">
                         Log out

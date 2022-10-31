@@ -21,6 +21,13 @@
             margin-right: 10px;
         }
 
+        &-plus{
+            &:hover{
+                cursor: pointer;
+                color: #5faeea;
+            }
+        }
+
         &-icon{
             margin: 0 10px 0 4px;
             height: 100%;
