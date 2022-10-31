@@ -68,6 +68,7 @@ export default function Home() {
 
         {/* MODAL */}
         <ClaimModal showModalClaim={showModalClaim} setShowModalClaim={setShowModalClaim} totalToken={totalToken}/>
+        
         <DepositModal showModalDeposit={showModalDeposit} setShowModalDeposit={setShowModalDeposit}/>
     </div>
   )

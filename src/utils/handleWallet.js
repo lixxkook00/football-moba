@@ -5,13 +5,12 @@ import { depositToWallet } from '../ethereum/walletController';
 import { Web3Provider } from '../ethereum/web3Provider';
 import { handleGetInforUser } from './handleUsers';
 
-export async function handleWidthDraw(amount, setLoading, navigate, handleClose) {
+export async function handleWidthDraw(amount,faCode, setLoading, navigate, handleClose) {
 
-    const walletConnect = await handleConnectWallet(navigate);
-    if (walletConnect) {
-        const body = new FormData();
+     const body = new FormData();
 
         body.append("amount", amount)
+        body.append("twofa", faCode)
 
         const res = await axios.post('/wallet/withdrawToken', body)
             .then(
@@ -60,7 +59,6 @@ export async function handleWidthDraw(amount, setLoading, navigate, handleClose)
                 }
             );
         setLoading(false)
-    }
 
 
     setLoading(false)

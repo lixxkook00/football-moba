@@ -27,7 +27,7 @@ export default function ClaimModal({showModalClaim,setShowModalClaim,totalToken}
     
     const widthDraw = async () => {
         setLoading(true)
-        const result = await handleWidthDraw(amount,setLoading,navigate,handleClose)
+        const result = await handleWidthDraw(amount,faCode,setLoading,navigate,handleClose)
     }
     // get free hire player from server
 
