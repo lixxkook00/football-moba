@@ -54,12 +54,6 @@ export default function SquadPage() {
             {
               data
               ?
-              <div className="centering w-100">
-                <span className="text-center value">
-                  Empty
-                </span>
-              </div>
-              :
               data?.map((item,index) => {
                 if(item.is_selling===0){
                   return (
@@ -72,6 +66,13 @@ export default function SquadPage() {
                   ) 
                 }
               })
+              :
+              <div className="centering w-100">
+                <span className="text-center value">
+                  Empty
+                </span>
+              </div>
+              
             }
           </div>
 
