@@ -77,7 +77,7 @@ export default function KickPages() {
             else {
                 // video is not playing
                 // so play video now
-                console.log("oke");
+                // console.log("oke");
                 videoElement.play();
             }
         });
@@ -85,7 +85,7 @@ export default function KickPages() {
         
         setTimeout(() => {
             setAward({
-                "result":resultAward?.result,
+                "result":resultAward?.result, 
                 "title":resultAward?.msg,
                 "amount":resultAward?.reward
             })
