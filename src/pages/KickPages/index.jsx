@@ -1,6 +1,9 @@
 import React ,{useEffect, useRef, useState} from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
+import DemoPlayerKick from '../../components/DemoPlayerKick'
+import KickGoal from '../../components/KickGoal'
 import KickResultModal from '../../Modals/KickResultModal'
+import { getUrlVideo } from '../../utils/handleKick'
 import { handleKick , handleGetPlayerbyID } from '../../utils/handlePlayers'
 import LoadingScreen from '../LoadingScreen'
 import './KickPages.scss'
@@ -19,7 +22,7 @@ export default function KickPages() {
 
     const [currentCartMain,setCurrentCartMain] = useState({})
 
-    // get infro by ID
+    // get infor by ID
     const [searchParams, setSearchParams] = useSearchParams();
     const id = searchParams.get('id');
 
@@ -37,7 +40,6 @@ export default function KickPages() {
         else{
             getInforPlayer(id)
         }
-
     },[])
 
     // handle back
@@ -97,55 +99,11 @@ export default function KickPages() {
             setIsRunning(false)
             setLoading(true)
 
+            // get result
             const result = await handleKick(currentCartMain.id,setLoading,navigate,powerPercent)
 
             // get url
-            let url = ""
-            if(result !==""){
-                if(window.innerWidth < 740){
-                    if(powerPercent > 80){
-                        if(currentSide === "right-down" || currentSide === "right-up"){
-                            url = `miss-right-over-mobile.mp4`
-                        }else if(currentSide === "left-down" || currentSide === "left-up"){
-                            url = `miss-left-over-mobile.mp4`
-                        }else{
-                            url = `miss-${currentSide}-over-mobile.mp4`
-                        }
-                    }
-                    else if(powerPercent < 30){
-                        url = `miss-${currentSide}-mobile.mp4`
-                    }
-                    else{
-                        if(result.result){
-                            url = `goal-${currentSide}-mobile.mp4`
-                        }else{
-                            url = `miss-${currentSide}-mobile.mp4`
-                        }
-                        
-                    }
-                }else{
-                    if(powerPercent > 80){
-                        if(currentSide === "right-down" || currentSide === "right-up"){
-                            url = `miss-right-over.mp4`
-                        }else if(currentSide === "left-down" || currentSide === "left-up"){
-                            url = `miss-left-over.mp4`
-                        }else{
-                            url = `miss-${currentSide}-over.mp4`
-                        }
-                    }
-                    else if(powerPercent < 30){
-                        url = `miss-${currentSide}.mp4`
-                    }
-                    else{
-                        if(result.result){
-                            url = `goal-${currentSide}.mp4`
-                        }else{
-                            url = `miss-${currentSide}.mp4`
-                        }
-                        
-                    }
-                } 
-            }
+            let url = getUrlVideo(result,powerPercent,currentSide)
 
             // play video result
             setUrlVideo(url)
@@ -157,7 +115,7 @@ export default function KickPages() {
     // handle show award
     const [award,setAward] = useState("")
 
-    // Hole to kick event
+    // Hold to kick event
     const [powerPercent,serPowerPercent] = useState(0)
     const [isRunning, setIsRunning] = useState(false);
 
@@ -209,77 +167,9 @@ export default function KickPages() {
                     </span>
                 </Link>
 
-                <div className="demo centering">
-                    <div className={`football-player-cart football-player-cart--${currentCartMain?.rarity} active`} >
+                <DemoPlayerKick currentCartMain={currentCartMain}/>
 
-                        <div className="football-player-cart-infor">
-                            <div className="football-player-cart-energy green">
-                                <i className="fa-solid fa-droplet"></i>
-                                {currentCartMain?.durability}
-                            </div>
-
-                            <div className="football-player-cart-energy">
-                            <i className="fa-solid fa-bolt"></i>
-                            {currentCartMain?.energy}
-                            </div>
-                        </div>
-
-                        <div className="football-player-cart-img">
-                        <img src={`./images/${currentCartMain?.image}`} alt="" />
-                        </div>
-
-                        <div className={`football-player-cart-rarity text-center rarity-${currentCartMain?.rarity}`}>
-                            <img src={`./images/${currentCartMain?.rarity}-button.png`} alt="" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="kick-goal">
-                    <img src="./images/khungthanh02.png" alt="" />
-
-                    <div className="kick-goal-side">
-
-                        <div className={`kick-goal-side-block`} >
-                            <div 
-                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-left-up kick-goal-side-in centering ${currentSide === "left-up" ? "active" : ""}`} 
-                                onClick={() => setCurrentSide("left-up")}
-                            >
-                                <img src="./images/arrow-kick.png" alt="" />
-                            </div>
-
-                            <div 
-                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-left-down kick-goal-side-in kick-goal-side-block centering ${currentSide === "left-down" ? "active" : ""}`} 
-                                onClick={() => setCurrentSide("left-down")}
-                            >
-                                <img src="./images/arrow-kick.png" alt="" />
-                            </div>
-                        </div>
-
-                        <div 
-                            className={`kick-goal-side-item kick-goal-side-block centering ${currentSide === "center" ? "active" : ""}`} 
-                            onClick={() => setCurrentSide("center")}
-                        >
-                            <i className="fa-solid fa-arrows-to-dot"></i>
-                        </div>
-
-                        <div className={`kick-goal-side-block`} >
-                            <div 
-                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-right-up kick-goal-side-in centering ${currentSide === "right-up" ? "active" : ""}`} 
-                                onClick={() => setCurrentSide("right-up")}
-                            >
-                                <img src="./images/arrow-kick.png" alt="" />
-                            </div>
-
-                            <div 
-                                className={`kick-goal-side-item kick-goal-arrow kick-goal-arrow-right-down kick-goal-side-in kick-goal-side-block centering ${currentSide === "right-down" ? "active" : ""}`} 
-                                onClick={() => setCurrentSide("right-down")}
-                            >
-                                <img src="./images/arrow-kick.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <KickGoal setCurrentSide={setCurrentSide} currentSide={currentSide} />
 
                 {/* STRENG PROCESS */}
                 <div className="progress-bar-container">
@@ -302,7 +192,7 @@ export default function KickPages() {
                     </div>
                 </div>
 
-                {/* result video*/}
+                {/* result video */}
                 {
                     stateVideo === true
                     &&
