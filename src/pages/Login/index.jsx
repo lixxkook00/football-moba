@@ -46,7 +46,7 @@ export default function Login() {
                             <div className="form-group">
                                 <div>
                                     <input 
-                                        placeholder="Email" 
+                                        placeholder="Username" 
                                         type="text" 
                                         id="email" 
                                         className="form-control" 

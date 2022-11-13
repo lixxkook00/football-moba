@@ -12,7 +12,7 @@ import MarketplacePage from '../pages/MarketplacePage';
 import PenaltyPage from '../pages/PenaltyPage';
 import PlayersPage from '../pages/PlayersPage';
 import SignUp from '../pages/SignUp';
-import TeamPages from '../pages/TeamPages';
+// import TeamPages from '../pages/TeamPages';
 import UserInfor from '../pages/UserInfor';
 import MysteryBoxOpeing from '../pages/MysteryBoxOpeing';
 
@@ -85,7 +85,7 @@ export default function Router({audio}) {
           <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {/* Not Found */}
-          {/* <Route path="*" element={<NotFound404 />} /> */}
+          <Route path="*" element={<NotFound404 />} />
 
       </Routes>
     </div>

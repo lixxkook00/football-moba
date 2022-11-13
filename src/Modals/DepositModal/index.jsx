@@ -39,14 +39,14 @@ export default function DepositModal({ showModalDeposit, setShowModalDeposit }) 
 
                     <div className="modal-custom-content">
                         <div className="modal-custom-input d-flex">
-                            <input
+                            <input 
                                 type="number"
                                 placeholder="0"
                                 value={amount}
                                 onChange={(e) => setAmount(e.target.value)}
                             />
-                            <div className="modal-custom-btn centering" onClick={() => getBalance()}>
-                                MAX
+                            <div className="modal-custom-btn centering">
+                                OBA
                             </div>
                         </div>
                     </div>
